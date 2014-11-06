@@ -1,0 +1,46 @@
+// ReadCard.idl : IDL source for ReadCard
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ReadCard.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(593205E5-B11A-4516-A526-B2363282D8EF),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IReadCard : IDispatch{
+};
+
+[
+	uuid(AA12F590-0CAA-4A89-BAAC-4A5765BAAEEA),
+	version(1.0),
+]
+library ReadCardLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(82379CE2-356C-4043-BDEA-D9A41A9DCA00)		
+	]
+	dispinterface _IReadCardEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(18261F04-A1A9-426F-B661-CA19FA5A59D4),		
+		control
+	]
+	coclass ReadCard
+	{
+		[default] interface IReadCard;
+		[default, source] dispinterface _IReadCardEvents;
+	};
+};
+

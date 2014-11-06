@@ -1,0 +1,32 @@
+HKCR
+{
+	ReadCard.1 = s 'ReadCard Class'
+	{
+		CLSID = s '{18261F04-A1A9-426F-B661-CA19FA5A59D4}'
+	}
+	ReadCard = s 'ReadCard Class'
+	{		
+		CurVer = s 'ReadCard.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {18261F04-A1A9-426F-B661-CA19FA5A59D4} = s 'ReadCard Class'
+		{
+			ProgID = s 'ReadCard.1'
+			VersionIndependentProgID = s 'ReadCard'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove Control
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 106'
+			MiscStatus = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			TypeLib = s '{AA12F590-0CAA-4A89-BAAC-4A5765BAAEEA}'
+			Version = s '1.0'
+		}
+	}
+}
