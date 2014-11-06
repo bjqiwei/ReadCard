@@ -1,0 +1,13 @@
+.OPTION EXPLICIT
+.Set CabinetNameTemplate=CABName.cab
+.Set CompressionType=lzx   ;All files are compressed in cabinet files
+.Set Compressionmemory=21
+.Set DiskDirectory1= ../installation/
+.Set UniqueFiles="OFF"
+.Set Cabinet=on
+.Set maxdisksize=1024000000
+
+../bin/kpaylink2.dll
+../bin/ReadCard.dll
+C:\Windows\System32\MFC42.dll
+default.inf

@@ -5,6 +5,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadCard", "ReadCard\ReadCa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_json", "jsoncpp-src-0.5.0\makefiles\vs71\lib_json.vcxproj", "{B84F7231-16CE-41D8-8C08-7B523FF4225B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MakeCab", "MakeCab\MakeCab.vcxproj", "{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1BCA90D2-A950-440E-B795-231E47C866BE} = {1BCA90D2-A950-440E-B795-231E47C866BE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
@@ -39,6 +44,15 @@ Global
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.Build.0 = Release|Win32
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|x64.ActiveCfg = Release|x64
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|x64.Build.0 = Release|x64
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Debug|Win32.Build.0 = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Debug|x64.ActiveCfg = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.dummy|Win32.ActiveCfg = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.dummy|Win32.Build.0 = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.dummy|x64.ActiveCfg = Debug|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Release|Win32.ActiveCfg = Release|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Release|Win32.Build.0 = Release|Win32
+		{DB6B204F-9A95-43DC-A8B3-5B5E9E6C0F78}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

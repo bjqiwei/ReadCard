@@ -1,0 +1,26 @@
+[version]
+
+	signature="$CHICAGO$"
+	AdvancedINF=2.0
+	
+[Add.Code] 
+
+   ReadCard.dll = ReadCard.dll
+   kpaylink2.dll=kpaylink2.dll
+   MFC42.dll=MFC42.dll
+
+[ReadCard.dll] 
+
+   file-win32-x86=thiscab 
+   clsid={18261F04-A1A9-426F-B661-CA19FA5A59D4}   
+   DestDir=11 
+   RegisterServer=yes
+
+[kpaylink2.dll]
+	file-win32-x86=thiscab  
+	DestDir=11 
+
+[MFC42.dll]
+
+	file-win32-x86=thiscab  
+	DestDir=11 

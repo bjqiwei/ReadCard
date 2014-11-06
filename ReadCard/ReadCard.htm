@@ -10,9 +10,10 @@
 <hr />
 <text id="textbody"/>
 <input type="button" value="readyktcard " onclick="readyktcard ();" />
+<input type="text" id ="port" value="0" pattern="[0-9]" style="width: 60px"/>
 <script language="javascript">
     function readyktcard() {
-        var result = ReadCard.readyktcard(0);
+        var result = ReadCard.readyktcard(document.getElementById("port").value);
         result = JSON.parse(result);
         insertLog("retrunVal:" + result["retrunVal"]);
         insertLog("CardData:" + result["CardData"]);
