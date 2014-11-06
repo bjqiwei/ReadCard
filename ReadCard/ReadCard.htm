@@ -2,15 +2,30 @@
 <HEAD>
 <TITLE>ATL 8.0 test page for object ReadCard</TITLE>
 </HEAD>
+<script src="json/json2.js" type="text/javascript"></script>
 <BODY>
 
 
 <OBJECT ID="ReadCard" width="0" height="0" CLASSID="CLSID:18261F04-A1A9-426F-B661-CA19FA5A59D4"></OBJECT>
-
+<hr />
+<text id="textbody"/>
 <input type="button" value="readyktcard " onclick="readyktcard ();" />
 <script language="javascript">
     function readyktcard() {
-        
+        var result = ReadCard.readyktcard(0);
+        result = JSON.parse(result);
+        insertLog("readyktcard:" + result["retrunVal"]);
+        insertLog("readyktcard:" + result["CardData"]);
+    }
+</script>
+
+<!--//ÆäËûº¯Êý-->
+<script type="text/javascript">
+    var text = document.getElementById("textbody");
+    function insertLog(msg) {
+        var p = document.createElement("p");
+        p.innerText = msg;
+        document.body.insertBefore(p, text.nextSibling);
     }
 </script>
 </BODY>

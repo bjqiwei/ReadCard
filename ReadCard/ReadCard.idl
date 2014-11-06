@@ -16,6 +16,7 @@ import "ocidl.idl";
 	pointer_default(unique)
 ]
 interface IReadCard : IDispatch{
+	[id(1)] HRESULT readyktcard([in] LONG port, [out,retval] BSTR* result);
 };
 
 [

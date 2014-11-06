@@ -149,6 +149,7 @@ END_SINK_MAP()
 	void FinalRelease()
 	{
 	}
+	STDMETHOD(readyktcard)(LONG port, BSTR* result);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ReadCard), CReadCard)
