@@ -4,12 +4,33 @@
 #include <atlctl.h>
 #include "ReadCard_i.h"
 #include "_IReadCardEvents_CP.h"
+#include <string>
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
 #endif
 
+extern TCHAR szPath[MAX_PATH];
 using namespace ATL;
+
+#if defined DLL_EXPORT  
+
+#define DECLDIR __declspec(dllexport)  
+
+#else  
+
+#define DECLDIR __declspec(dllimport)  
+
+#endif  
+extern "C"    //告诉编译器该部分可以在C/C++中使用。  
+
+{  
+
+	typedef DECLDIR int (*Add)( int a, int b );  
+
+	typedef DECLDIR void (*Function)( void );  
+
+}  
 
 
 
@@ -38,14 +59,35 @@ class ATL_NO_VTABLE CReadCard :
 	public CComCompositeControl<CReadCard>
 {
 public:
-
-
-	CReadCard()
+	Add myreadyktcard;
+	HINSTANCE hInstLibrary;  
+	CReadCard():myreadyktcard(NULL),hInstLibrary(NULL)
 	{
 		m_bWindowOnly = TRUE;
 		CalcExtent(m_sizeExtent);
-	}
+		std::string kpaylink2Path = szPath;
+		kpaylink2Path = kpaylink2Path.substr(0,kpaylink2Path.rfind("\\")+1);
+		kpaylink2Path.append("dll_test.dll");
+		hInstLibrary = LoadLibrary(kpaylink2Path.c_str()); 
 
+		if (hInstLibrary != NULL)  {  
+
+			//调用方法，返回方法句柄。  
+			myreadyktcard = (Add)GetProcAddress(hInstLibrary, "Add");  
+		}
+		else{
+			int err = GetLastError();
+			MessageBox("can not  load kpaylink2.dll","",MB_OK);
+		}
+
+	}
+	~CReadCard()
+	{
+		if (hInstLibrary)
+		{
+			FreeLibrary(hInstLibrary);//资源释放  
+		}
+	}
 DECLARE_OLEMISC_STATUS(OLEMISC_RECOMPOSEONRESIZE |
 	OLEMISC_CANTLINKINSIDE |
 	OLEMISC_INSIDEOUT |

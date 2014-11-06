@@ -7,7 +7,7 @@
 #include "xdlldata.h"
 
 CReadCardModule _AtlModule;
-
+TCHAR szPath[MAX_PATH];
 // DLL Entry Point
 extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
@@ -16,5 +16,9 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
 		return FALSE;
 #endif
 	hInstance;
+	if (dwReason == DLL_PROCESS_ATTACH)
+	{
+		GetModuleFileName(hInstance,szPath,MAX_PATH);
+	}
 	return _AtlModule.DllMain(dwReason, lpReserved); 
 }
