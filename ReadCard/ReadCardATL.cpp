@@ -6,20 +6,18 @@
 
 
 // CReadCard
-
+int __stdcall readyktcard(int , unsigned char * );
 
 STDMETHODIMP CReadCard::readyktcard(LONG port, BSTR* result)
 {
 	// TODO: Add your implementation code here
 	Json::Value jresult;
 	unsigned char CardData[MAX_PATH]={0};
-	int ret = 0;
-	if (myreadyktcard)
-	{
-		ret = myreadyktcard(1,2);
-	}
+	int ret =  ::readyktcard(port,CardData);
+	std::string strData(CardData, CardData+16);
+	
 	jresult["retrunVal"] = ret;
-	jresult["CardData"] = (char *)CardData;
+	jresult["CardData"] = strData;
 	std::string str = jresult.toStyledString();
 	*result = SysAllocString(CComBSTR(str.c_str()));
 	return S_OK;

@@ -81,6 +81,7 @@
       <ModuleDefinitionFile>.\ReadCard.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>$(SolutionDir)触联天下动态库\kpaylink2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y $(ProjectDir)*.htm $(OutDir)
@@ -123,6 +124,7 @@ xcopy /Y $(ProjectDir)json\*.js $(OutDir)json\</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>$(SolutionDir)触联天下动态库\kpaylink2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y $(ProjectDir)*.htm $(OutDir)
